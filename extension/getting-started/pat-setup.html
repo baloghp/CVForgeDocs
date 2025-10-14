@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Personal Access Token Setup - CVForge Documentation</title>
+    <link rel="stylesheet" href="../../styles.css" />
+  </head>
+  <body>
+    <div class="container">
+      <header>
+        <h1>Personal Access Token Setup</h1>
+        <nav>
+          <ul>
+            <li><a href="../../">Home</a></li>
+            <li><a href="../">Extension Docs</a></li>
+            <li><a href="#overview">Overview</a></li>
+            <li><a href="#setup">Setup</a></li>
+          </ul>
+        </nav>
+      </header>
+
+      <main>
+        <section id="overview">
+          <h2>What are Personal Access Tokens?</h2>
+          <p>Personal Access Tokens (PATs) are secure tokens that allow the CVForge browser extension to create application records in your account without requiring your login credentials.</p>
+          
+          <p>PATs are secure, revocable tokens that:</p>
+          <ul>
+            <li><strong>Secure</strong>: No need to share your login credentials</li>
+            <li><strong>Scoped</strong>: Limited to specific actions (creating applications)</li>
+            <li><strong>Expirable</strong>: Can be set to expire automatically</li>
+            <li><strong>Revocable</strong>: Can be revoked at any time</li>
+            <li><strong>Trackable</strong>: All usage is logged for security</li>
+          </ul>
+        </section>
+
+        <section id="setup">
+          <h2>Creating Your First PAT</h2>
+          
+          <div class="card">
+            <h3>Step 1: Access PAT Management</h3>
+            <ol>
+              <li>Log in to your CVForge account</li>
+              <li>Navigate to <strong>Settings</strong> → <strong>Browser Extension Tokens</strong></li>
+              <li>You'll see the PAT management interface</li>
+            </ol>
+          </div>
+
+          <div class="card">
+            <h3>Step 2: Create a New PAT</h3>
+            <ol>
+              <li>Click <strong>"Create New PAT"</strong></li>
+              <li>Fill in the required information:
+                <ul>
+                  <li><strong>Name</strong>: Give your PAT a descriptive name (e.g., "John's Job Search", "PM Applications")</li>
+                  <li><strong>CV Template</strong>: Select which CV template to use for applications created with this PAT</li>
+                  <li><strong>Expiration</strong>: Set an optional expiration date (recommended: 90 days)</li>
+                </ul>
+              </li>
+            </ol>
+          </div>
+
+          <div class="card">
+            <h3>Step 3: Save Your Token</h3>
+            <ol>
+              <li>Click <strong>"Create PAT"</strong></li>
+              <li><strong>Important</strong>: Copy the generated token immediately - you won't be able to see it again!</li>
+              <li>The token will look like: <code>cvf_abc123def456...</code></li>
+            </ol>
+          </div>
+        </section>
+
+        <section>
+          <h2>PAT Configuration Options</h2>
+          
+          <div class="features">
+            <div class="feature">
+              <h3>CV Template Selection</h3>
+              <p>Each PAT can be configured to use a specific CV template:</p>
+              <ul>
+                <li><strong>Default Template</strong>: Uses your account's default CV template</li>
+                <li><strong>Custom Template</strong>: Select a specific template for this PAT</li>
+                <li><strong>No Template</strong>: Applications will be created without a template</li>
+              </ul>
+            </div>
+
+            <div class="feature">
+              <h3>Expiration Settings</h3>
+              <ul>
+                <li><strong>No Expiration</strong>: Token never expires (not recommended)</li>
+                <li><strong>30 Days</strong>: Good for short-term use</li>
+                <li><strong>90 Days</strong>: Recommended for regular use</li>
+                <li><strong>Custom</strong>: Set your own expiration date</li>
+              </ul>
+            </div>
+          </div>
+        </section>
+
+        <section>
+          <h2>Security Best Practices</h2>
+          
+          <div class="card">
+            <h3>Token Storage</h3>
+            <ul>
+              <li><strong>Never share</strong> your PAT tokens</li>
+              <li><strong>Store securely</strong> in a password manager</li>
+              <li><strong>Revoke immediately</strong> if compromised</li>
+            </ul>
+          </div>
+
+          <div class="card">
+            <h3>Usage Monitoring</h3>
+            <ul>
+              <li><strong>Check usage logs</strong> regularly</li>
+              <li><strong>Revoke suspicious</strong> activity immediately</li>
+              <li><strong>Set expiration dates</strong> for all tokens</li>
+            </ul>
+          </div>
+        </section>
+
+        <section>
+          <h2>Next Steps</h2>
+          <p>Once you have your PAT set up:</p>
+          <ol>
+            <li><a href="extension-setup.html">Install the Browser Extension</a></li>
+            <li><a href="extension-setup.html#configuring">Configure the extension</a> with your PAT</li>
+            <li><a href="../user-guides/using-the-extension.html">Start capturing job descriptions</a></li>
+          </ol>
+        </section>
+      </main>
+
+      <footer>
+        <h3>Need Help?</h3>
+        <ul>
+          <li><strong>Email Support</strong>: <a href="mailto:support@cvforge.com">support@cvforge.com</a></li>
+          <li><strong>GitHub Issues</strong>: <a href="https://github.com/yourusername/cvforge/issues">Report Issues</a></li>
+          <li><strong>Community</strong>: <a href="https://discord.gg/cvforge">Discord Server</a></li>
+        </ul>
+      </footer>
+    </div>
+  </body>
+</html>

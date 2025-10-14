@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Browser Extension Installation - CVForge Documentation</title>
+    <link rel="stylesheet" href="../../styles.css" />
+  </head>
+  <body>
+    <div class="container">
+      <header>
+        <h1>Browser Extension Installation</h1>
+        <nav>
+          <ul>
+            <li><a href="../../">Home</a></li>
+            <li><a href="../">Extension Docs</a></li>
+            <li><a href="#requirements">Requirements</a></li>
+            <li><a href="#installation">Installation</a></li>
+          </ul>
+        </nav>
+      </header>
+
+      <main>
+        <section id="requirements">
+          <h2>System Requirements</h2>
+          <ul>
+            <li><strong>Browser</strong>: Chrome, Edge, or other Chromium-based browsers</li>
+            <li><strong>Operating System</strong>: Windows, macOS, or Linux</li>
+            <li><strong>CVForge Account</strong>: Active account with at least one PAT created</li>
+          </ul>
+        </section>
+
+        <section id="installation">
+          <h2>Installation Methods</h2>
+          
+          <div class="card">
+            <h3>Method 1: Beta Testing (Current)</h3>
+            <p>Since we're in beta, the extension is distributed manually:</p>
+            <ol>
+              <li><strong>Download the Extension</strong>
+                <ul>
+                  <li>Contact us at <a href="mailto:support@cvforge.com">support@cvforge.com</a> to request the extension</li>
+                  <li>We'll send you a ZIP file containing the extension</li>
+                </ul>
+              </li>
+              <li><strong>Install the Extension</strong>
+                <ul>
+                  <li>Extract the ZIP file to a folder on your computer</li>
+                  <li>Open Chrome and go to <code>chrome://extensions/</code></li>
+                  <li>Enable <strong>"Developer mode"</strong> (toggle in top-right corner)</li>
+                  <li>Click <strong>"Load unpacked"</strong></li>
+                  <li>Select the folder where you extracted the extension</li>
+                </ul>
+              </li>
+              <li><strong>Verify Installation</strong>
+                <ul>
+                  <li>You should see the CVForge extension icon in your browser toolbar</li>
+                  <li>The extension should show as "Enabled" in the extensions page</li>
+                </ul>
+              </li>
+            </ol>
+          </div>
+
+          <div class="card">
+            <h3>Method 2: Chrome Web Store (Future)</h3>
+            <p>Once we're out of beta, the extension will be available on the Chrome Web Store:</p>
+            <ol>
+              <li>Visit the <a href="https://chrome.google.com/webstore">Chrome Web Store</a></li>
+              <li>Search for "CVForge"</li>
+              <li>Click <strong>"Add to Chrome"</strong></li>
+              <li>Confirm the installation</li>
+            </ol>
+          </div>
+        </section>
+
+        <section id="configuring">
+          <h2>Configuring the Extension</h2>
+          
+          <div class="card">
+            <h3>Step 1: Open Extension Options</h3>
+            <ol>
+              <li>Click the CVForge extension icon in your browser toolbar</li>
+              <li>Click <strong>"Options"</strong> or right-click the icon and select <strong>"Options"</strong></li>
+            </ol>
+          </div>
+
+          <div class="card">
+            <h3>Step 2: Add Your PAT</h3>
+            <ol>
+              <li>In the <strong>"Add Personal Access Token"</strong> section:
+                <ul>
+                  <li><strong>PAT Name</strong>: Enter a name for this PAT (e.g., "My Job Search")</li>
+                  <li><strong>Personal Access Token</strong>: Paste your PAT token from CVForge</li>
+                </ul>
+              </li>
+              <li>Click <strong>"Validate & Add PAT"</strong></li>
+              <li>The extension will validate your token and show your user information</li>
+            </ol>
+          </div>
+
+          <div class="card">
+            <h3>Step 3: Configure Settings</h3>
+            <ul>
+              <li><strong>Allow Duplicate Submissions</strong>: Toggle whether to allow submitting the same URL multiple times</li>
+              <li><strong>Default Setting</strong>: Disabled (recommended) - prevents accidental duplicates</li>
+            </ul>
+          </div>
+        </section>
+
+        <section>
+          <h2>Using the Extension</h2>
+          
+          <div class="features">
+            <div class="feature">
+              <h3>Capturing Job Descriptions</h3>
+              <ol>
+                <li><strong>Navigate to any job posting</strong> (LinkedIn, Indeed, company websites, etc.)</li>
+                <li><strong>Right-click</strong> on the page or selected text</li>
+                <li><strong>Select "CVForge"</strong> from the context menu</li>
+                <li><strong>Choose your PAT</strong> from the dropdown</li>
+                <li>The extension will:
+                  <ul>
+                    <li>Capture the page content</li>
+                    <li>Extract job information using AI</li>
+                    <li>Create an application record in your CVForge account</li>
+                    <li>Show a success notification</li>
+                  </ul>
+                </li>
+              </ol>
+            </div>
+
+            <div class="feature">
+              <h3>Viewing Submission History</h3>
+              <ol>
+                <li>Open the extension options page</li>
+                <li>Scroll to <strong>"Submitted Job Descriptions"</strong></li>
+                <li>View all your submissions in a grid layout</li>
+                <li>Filter by PAT using the dropdown</li>
+                <li>Click on URLs to revisit job postings</li>
+                <li>Remove individual submissions if needed</li>
+              </ol>
+            </div>
+          </div>
+        </section>
+
+        <section>
+          <h2>Extension Features</h2>
+          
+          <div class="grid">
+            <div class="card">
+              <h3>Smart Content Capture</h3>
+              <p>The extension intelligently captures content:</p>
+              <ul>
+                <li><strong>Primary</strong>: Uses clean text content when available</li>
+                <li><strong>Fallback</strong>: Uses full HTML when text is minimal</li>
+                <li><strong>Selected Text</strong>: Prioritizes any text you've selected</li>
+              </ul>
+            </div>
+
+            <div class="card">
+              <h3>Duplicate Detection</h3>
+              <ul>
+                <li><strong>Automatic Detection</strong>: Identifies if you've already submitted a URL</li>
+                <li><strong>Visual Warning</strong>: Shows red badge and console message for duplicates</li>
+                <li><strong>User Control</strong>: Toggle to allow or block duplicate submissions</li>
+              </ul>
+            </div>
+
+            <div class="card">
+              <h3>Submission History</h3>
+              <ul>
+                <li><strong>Complete Tracking</strong>: Records all submission attempts</li>
+                <li><strong>Status Tracking</strong>: Shows success/failure status</li>
+                <li><strong>Detailed Information</strong>: Job title, company, confidence score, application ID</li>
+                <li><strong>Easy Management</strong>: View, filter, and remove submissions</li>
+              </ul>
+            </div>
+          </div>
+        </section>
+
+        <section>
+          <h2>Next Steps</h2>
+          <p>Now that you have the extension installed and configured:</p>
+          <ol>
+            <li><a href="../user-guides/using-the-extension.html">Learn how to use the extension</a></li>
+            <li><a href="../user-guides/submission-history.html">Understand submission history</a></li>
+            <li><a href="../user-guides/managing-pats.html">Manage your PATs</a></li>
+          </ol>
+        </section>
+      </main>
+
+      <footer>
+        <h3>Need Help?</h3>
+        <ul>
+          <li><strong>Email Support</strong>: <a href="mailto:support@cvforge.com">support@cvforge.com</a></li>
+          <li><strong>GitHub Issues</strong>: <a href="https://github.com/yourusername/cvforge/issues">Report Issues</a></li>
+          <li><strong>Community</strong>: <a href="https://discord.gg/cvforge">Discord Server</a></li>
+        </ul>
+      </footer>
+    </div>
+  </body>
+</html>

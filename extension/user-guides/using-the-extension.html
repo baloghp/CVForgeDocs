@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Using the Extension - CVForge Documentation</title>
+    <link rel="stylesheet" href="../../styles.css" />
+  </head>
+  <body>
+    <div class="container">
+      <header>
+        <h1>Using the Extension</h1>
+        <nav>
+          <ul>
+            <li><a href="../../">Home</a></li>
+            <li><a href="../">Extension Docs</a></li>
+            <li><a href="#how-it-works">How It Works</a></li>
+            <li><a href="#usage">Usage</a></li>
+          </ul>
+        </nav>
+      </header>
+
+      <main>
+        <section id="how-it-works">
+          <h2>How It Works</h2>
+          <p>The CVForge extension works by:</p>
+          <ol>
+            <li><strong>Capturing Content</strong>: Extracting job information from web pages</li>
+            <li><strong>AI Processing</strong>: Using AI to identify and extract job details</li>
+            <li><strong>Creating Applications</strong>: Automatically creating application records in your CVForge account</li>
+            <li><strong>Tracking History</strong>: Recording all submissions for future reference</li>
+          </ol>
+        </section>
+
+        <section id="usage">
+          <h2>Basic Usage</h2>
+          
+          <div class="card">
+            <h3>Step 1: Navigate to a Job Posting</h3>
+            <ol>
+              <li>Go to any website with a job posting</li>
+              <li>The extension works on any page - no special setup required</li>
+            </ol>
+          </div>
+
+          <div class="card">
+            <h3>Step 2: Capture the Job Description</h3>
+            <p><strong>Method 1: Right-click on the page</strong></p>
+            <ol>
+              <li>Right-click anywhere on the job posting page</li>
+              <li>Select <strong>"CVForge"</strong> from the context menu</li>
+              <li>Choose your PAT from the dropdown</li>
+              <li>The extension will capture the entire page</li>
+            </ol>
+            
+            <p><strong>Method 2: Select specific text</strong></p>
+            <ol>
+              <li>Highlight the job description text you want to capture</li>
+              <li>Right-click on the selected text</li>
+              <li>Select <strong>"CVForge"</strong> from the context menu</li>
+              <li>Choose your PAT from the dropdown</li>
+              <li>The extension will prioritize the selected text</li>
+            </ol>
+          </div>
+
+          <div class="card">
+            <h3>Step 3: Wait for Processing</h3>
+            <p>The extension will:</p>
+            <ol>
+              <li>Show a loading notification</li>
+              <li>Process the content with AI</li>
+              <li>Extract job information</li>
+              <li>Create an application record</li>
+              <li>Show a success notification</li>
+            </ol>
+          </div>
+        </section>
+
+        <section>
+          <h2>Supported Websites</h2>
+          <p>The extension works on <strong>any website</strong>, including:</p>
+          
+          <div class="grid">
+            <div class="card">
+              <h3>Job Boards</h3>
+              <ul>
+                <li>LinkedIn Jobs</li>
+                <li>Indeed</li>
+                <li>Glassdoor</li>
+                <li>ZipRecruiter</li>
+                <li>Monster</li>
+                <li>CareerBuilder</li>
+              </ul>
+            </div>
+
+            <div class="card">
+              <h3>Company Career Pages</h3>
+              <ul>
+                <li>Workday portals</li>
+                <li>BambooHR systems</li>
+                <li>Custom company websites</li>
+                <li>Startup platforms (AngelList, Wellfound)</li>
+              </ul>
+            </div>
+
+            <div class="card">
+              <h3>ATS Systems</h3>
+              <ul>
+                <li>Greenhouse</li>
+                <li>Lever</li>
+                <li>JazzHR</li>
+                <li>SmartRecruiters</li>
+                <li>iCIMS</li>
+              </ul>
+            </div>
+          </div>
+        </section>
+
+        <section>
+          <h2>Advanced Usage Tips</h2>
+          
+          <div class="features">
+            <div class="feature">
+              <h3>Selecting Specific Content</h3>
+              <p>For better results, try selecting specific parts of the job posting:</p>
+              <ul>
+                <li><strong>Job Title</strong>: Select the job title for accurate extraction</li>
+                <li><strong>Job Description</strong>: Select the main job description text</li>
+                <li><strong>Company Information</strong>: Select company details if needed</li>
+              </ul>
+            </div>
+
+            <div class="feature">
+              <h3>Handling Complex Pages</h3>
+              <p>Some pages may have complex layouts:</p>
+              <ul>
+                <li><strong>Try different selections</strong>: Select different parts of the page</li>
+                <li><strong>Use full page capture</strong>: Right-click on empty areas for full page capture</li>
+                <li><strong>Check submission history</strong>: Verify the content was captured correctly</li>
+              </ul>
+            </div>
+          </div>
+        </section>
+
+        <section>
+          <h2>Understanding the Results</h2>
+          
+          <div class="card">
+            <h3>Success Notifications</h3>
+            <p>When a job is successfully captured, you'll see:</p>
+            <ul>
+              <li><strong>Success message</strong> with job details</li>
+              <li><strong>Confidence score</strong> (how confident the AI is about the extraction)</li>
+              <li><strong>Application ID</strong> for reference</li>
+              <li><strong>Company name</strong> and job title</li>
+            </ul>
+          </div>
+
+          <div class="card">
+            <h3>Error Messages</h3>
+            <p>If something goes wrong:</p>
+            <ul>
+              <li><strong>Error notification</strong> with details</li>
+              <li><strong>Check the console</strong> for more information (F12 → Console)</li>
+              <li><strong>Try again</strong> - some errors are temporary</li>
+            </ul>
+          </div>
+        </section>
+
+        <section>
+          <h2>Best Practices</h2>
+          
+          <div class="grid">
+            <div class="card">
+              <h3>Content Selection</h3>
+              <p><strong>Do:</strong></p>
+              <ul>
+                <li>Select the main job description text</li>
+                <li>Include company name and job title</li>
+                <li>Select relevant details (requirements, benefits, etc.)</li>
+              </ul>
+              <p><strong>Don't:</strong></p>
+              <ul>
+                <li>Select navigation menus or ads</li>
+                <li>Include unrelated content</li>
+                <li>Select too much or too little text</li>
+              </ul>
+            </div>
+
+            <div class="card">
+              <h3>PAT Management</h3>
+              <p><strong>Do:</strong></p>
+              <ul>
+                <li>Use descriptive PAT names</li>
+                <li>Set appropriate expiration dates</li>
+                <li>Monitor usage regularly</li>
+              </ul>
+              <p><strong>Don't:</strong></p>
+              <ul>
+                <li>Share PAT tokens</li>
+                <li>Use expired tokens</li>
+                <li>Create too many PATs</li>
+              </ul>
+            </div>
+          </div>
+        </section>
+      </main>
+
+      <footer>
+        <h3>Need Help?</h3>
+        <ul>
+          <li><strong>Email Support</strong>: <a href="mailto:support@cvforge.com">support@cvforge.com</a></li>
+          <li><strong>GitHub Issues</strong>: <a href="https://github.com/yourusername/cvforge/issues">Report Issues</a></li>
+          <li><strong>Community</strong>: <a href="https://discord.gg/cvforge">Discord Server</a></li>
+        </ul>
+      </footer>
+    </div>
+  </body>
+</html>
