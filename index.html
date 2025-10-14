@@ -6,18 +6,33 @@
     <title>CVForge Documentation</title>
     <link rel="stylesheet" href="styles.css" />
   </head>
-  <body>
+  <body data-theme="light">
     <div class="container">
-      <header>
-        <h1>CVForge Documentation</h1>
-        <nav>
-          <ul>
+      <!-- Hero Section -->
+      <div class="hero">
+        <div class="hero-content">
+          <h1>CVForge Documentation</h1>
+          <p class="text-xl">Complete guide to using CVForge web app and browser extension tools</p>
+          <div class="mt-4">
+            <a href="extension/" class="btn btn-primary">Get Started</a>
+            <a href="#features" class="btn btn-secondary">Learn More</a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Navigation -->
+      <div class="navbar bg-base-100 shadow-lg mb-4">
+        <div class="navbar-start">
+          <a href="#" class="btn btn-ghost text-xl">CVForge Docs</a>
+        </div>
+        <div class="navbar-center">
+          <ul class="menu menu-horizontal px-1">
             <li><a href="#home">Home</a></li>
             <li><a href="extension/">Extension Docs</a></li>
             <li><a href="#help">Help</a></li>
           </ul>
-        </nav>
-      </header>
+        </div>
+      </div>
 
       <main>
         <section id="home">
@@ -57,23 +72,27 @@
           <h3>Quick Start</h3>
           <div class="grid">
             <div class="card">
-              <h4>Web App</h4>
-              <ul>
-                <li>Getting started with the web app (coming soon)</li>
-                <li>Account setup and onboarding (coming soon)</li>
-                <li>Managing applications and assessments (coming soon)</li>
-              </ul>
+              <div class="card-body">
+                <h4 class="card-title">Web App</h4>
+                <ul>
+                  <li>Getting started with the web app (coming soon)</li>
+                  <li>Account setup and onboarding (coming soon)</li>
+                  <li>Managing applications and assessments (coming soon)</li>
+                </ul>
+              </div>
             </div>
             <div class="card">
-              <h4>Browser Extension</h4>
-              <p>
-                <a href="extension/">Extension Documentation</a> - Complete
-                guide to installation, PATs, usage, FAQ, and troubleshooting
-              </p>
+              <div class="card-body">
+                <h4 class="card-title">Browser Extension</h4>
+                <p>
+                  <a href="extension/" class="link link-primary">Extension Documentation</a> - Complete
+                  guide to installation, PATs, usage, FAQ, and troubleshooting
+                </p>
+              </div>
             </div>
           </div>
 
-          <h3>Key Features</h3>
+          <h3 id="features">Key Features</h3>
           <div class="features">
             <div class="feature">
               <h4>Application Management</h4>
@@ -121,25 +140,24 @@
         </section>
       </main>
 
-      <footer>
-        <h3>Support</h3>
-        <ul>
-          <li>
-            <strong>Email Support</strong>:
-            <a href="mailto:support@cvforge.com">support@cvforge.com</a>
-          </li>
-          <li>
-            <strong>GitHub Issues</strong>:
-            <a href="https://github.com/yourusername/cvforge/issues"
-              >Report Issues</a
-            >
-          </li>
-          <li>
-            <strong>Community</strong>:
-            <a href="https://discord.gg/cvforge">Discord Server</a>
-          </li>
-        </ul>
-        <p><em>Last updated: October 2025</em></p>
+      <footer class="footer footer-center p-10 bg-base-200 text-base-content rounded">
+        <div>
+          <h3 class="footer-title">Support</h3>
+          <div class="grid grid-flow-col gap-4">
+            <a class="link link-hover" href="mailto:support@cvforge.com">
+              <strong>Email Support</strong>
+            </a>
+            <a class="link link-hover" href="https://github.com/yourusername/cvforge/issues">
+              <strong>GitHub Issues</strong>
+            </a>
+            <a class="link link-hover" href="https://discord.gg/cvforge">
+              <strong>Discord Server</strong>
+            </a>
+          </div>
+        </div>
+        <div>
+          <p><em>Last updated: October 2025</em></p>
+        </div>
       </footer>
     </div>
   </body>
