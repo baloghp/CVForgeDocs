@@ -1,164 +1,888 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" data-theme="corporate">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>CVForge Documentation</title>
-    <link rel="stylesheet" href="styles.css" />
+    <meta
+      name="description"
+      content="Complete guide to using CVForge web app and browser extension tools"
+    />
+
+    <!-- Tailwind CSS and daisyUI -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link
+      href="https://cdn.jsdelivr.net/npm/daisyui@4.12.10/dist/full.css"
+      rel="stylesheet"
+      type="text/css"
+    />
+
+    <!-- Force corporate theme variables -->
+    <style>
+      [data-theme="corporate"] {
+        --p: #1e40af;
+        --pc: #ffffff;
+        --s: #059669;
+        --sc: #ffffff;
+        --a: #7c3aed;
+        --ac: #ffffff;
+        --n: #374151;
+        --nc: #ffffff;
+        --b1: #ffffff;
+        --b2: #f3f4f6;
+        --b3: #e5e7eb;
+        --bc: #1f2937;
+        --in: #3b82f6;
+        --inc: #ffffff;
+        --su: #10b981;
+        --suc: #ffffff;
+        --wa: #f59e0b;
+        --wac: #ffffff;
+        --er: #ef4444;
+        --erc: #ffffff;
+      }
+    </style>
+
+    <!-- Preact -->
+    <script type="module">
+      import { render, h } from "https://esm.sh/preact@10.19.6";
+      import { useState, useEffect } from "https://esm.sh/preact@10.19.6/hooks";
+
+      // Hero Component
+      function Hero() {
+        return h(
+          "div",
+          {
+            class: "hero min-h-screen relative",
+            style: {
+              backgroundImage:
+                "linear-gradient(to bottom right, hsl(var(--p)), hsl(var(--s)))",
+            },
+          },
+          // overlay for better contrast across themes
+          h("div", {
+            class:
+              "absolute inset-0 bg-base-100/10 backdrop-blur-[1px] pointer-events-none",
+          }),
+          h(
+            "div",
+            { class: "hero-content text-center" },
+            h(
+              "div",
+              {
+                class:
+                  "max-w-xl mx-auto rounded-box bg-base-100/80 text-base-content shadow-xl p-8",
+              },
+              h(
+                "h1",
+                { class: "text-5xl font-bold mb-4 drop-shadow-sm" },
+                "CVForge Documentation"
+              ),
+              h(
+                "p",
+                { class: "text-lg mb-6 opacity-80" },
+                "Complete guide to using CVForge web app and browser extension tools"
+              ),
+              h(
+                "div",
+                { class: "flex gap-4 justify-center" },
+                h(
+                  "a",
+                  { href: "#getting-started", class: "btn btn-primary" },
+                  "Get Started"
+                ),
+                h(
+                  "a",
+                  { href: "#features", class: "btn btn-outline" },
+                  "Learn More"
+                )
+              )
+            )
+          )
+        );
+      }
+
+      // Navigation Component
+      function Navigation() {
+        const [isOpen, setIsOpen] = useState(false);
+
+        return h(
+          "div",
+          { class: "navbar bg-base-100 shadow-lg sticky top-0 z-50" },
+          h(
+            "div",
+            { class: "navbar-start" },
+            h(
+              "div",
+              { class: "dropdown" },
+              h(
+                "div",
+                {
+                  tabindex: "0",
+                  role: "button",
+                  class: "btn btn-ghost lg:hidden",
+                  onClick: () => setIsOpen(!isOpen),
+                },
+                "☰"
+              ),
+              h(
+                "ul",
+                {
+                  tabindex: "0",
+                  class: `menu menu-sm dropdown-content mt-3 z-[1] p-2 shadow bg-base-100 rounded-box w-52 ${
+                    isOpen ? "block" : "hidden"
+                  }`,
+                },
+                h(
+                  "li",
+                  null,
+                  h(
+                    "a",
+                    { href: "#home", class: "flex items-center gap-2" },
+                    h(
+                      "svg",
+                      {
+                        class: "w-4 h-4",
+                        fill: "none",
+                        stroke: "currentColor",
+                        viewBox: "0 0 24 24",
+                      },
+                      h("path", {
+                        "stroke-linecap": "round",
+                        "stroke-linejoin": "round",
+                        "stroke-width": "2",
+                        d: "M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6",
+                      })
+                    ),
+                    "Home"
+                  )
+                ),
+                h(
+                  "li",
+                  null,
+                  h(
+                    "a",
+                    { href: "#features", class: "flex items-center gap-2" },
+                    h(
+                      "svg",
+                      {
+                        class: "w-4 h-4",
+                        fill: "none",
+                        stroke: "currentColor",
+                        viewBox: "0 0 24 24",
+                      },
+                      h("path", {
+                        "stroke-linecap": "round",
+                        "stroke-linejoin": "round",
+                        "stroke-width": "2",
+                        d: "M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z",
+                      })
+                    ),
+                    "Features"
+                  )
+                ),
+                h(
+                  "li",
+                  null,
+                  h(
+                    "a",
+                    {
+                      href: "#getting-started",
+                      class: "flex items-center gap-2",
+                    },
+                    h(
+                      "svg",
+                      {
+                        class: "w-4 h-4",
+                        fill: "none",
+                        stroke: "currentColor",
+                        viewBox: "0 0 24 24",
+                      },
+                      h("path", {
+                        "stroke-linecap": "round",
+                        "stroke-linejoin": "round",
+                        "stroke-width": "2",
+                        d: "M13 10V3L4 14h7v7l9-11h-7z",
+                      })
+                    ),
+                    "Getting Started"
+                  )
+                ),
+                h(
+                  "li",
+                  null,
+                  h(
+                    "a",
+                    { href: "#extension", class: "flex items-center gap-2" },
+                    h(
+                      "svg",
+                      {
+                        class: "w-4 h-4",
+                        fill: "none",
+                        stroke: "currentColor",
+                        viewBox: "0 0 24 24",
+                      },
+                      h("path", {
+                        "stroke-linecap": "round",
+                        "stroke-linejoin": "round",
+                        "stroke-width": "2",
+                        d: "M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z",
+                      }),
+                      h("path", {
+                        "stroke-linecap": "round",
+                        "stroke-linejoin": "round",
+                        "stroke-width": "2",
+                        d: "M15 12a3 3 0 11-6 0 3 3 0 016 0z",
+                      })
+                    ),
+                    "Extension"
+                  )
+                ),
+                h(
+                  "li",
+                  null,
+                  h(
+                    "a",
+                    { href: "#support", class: "flex items-center gap-2" },
+                    h(
+                      "svg",
+                      {
+                        class: "w-4 h-4",
+                        fill: "none",
+                        stroke: "currentColor",
+                        viewBox: "0 0 24 24",
+                      },
+                      h("path", {
+                        "stroke-linecap": "round",
+                        "stroke-linejoin": "round",
+                        "stroke-width": "2",
+                        d: "M18.364 5.636l-3.536 3.536m0 5.656l3.536 3.536M9.172 9.172L5.636 5.636m3.536 9.192L5.636 18.364M12 2.25a9.75 9.75 0 100 19.5 9.75 9.75 0 000-19.5z",
+                      })
+                    ),
+                    "Support"
+                  )
+                )
+              )
+            ),
+            h(
+              "a",
+              { class: "btn btn-ghost text-xl", href: "#home" },
+              "CVForge Docs"
+            )
+          ),
+          h(
+            "div",
+            { class: "navbar-center hidden lg:flex" },
+            h(
+              "ul",
+              { class: "menu menu-horizontal px-1" },
+              h(
+                "li",
+                null,
+                h(
+                  "a",
+                  { href: "#home", class: "flex items-center gap-2" },
+                  h(
+                    "svg",
+                    {
+                      class: "w-4 h-4",
+                      fill: "none",
+                      stroke: "currentColor",
+                      viewBox: "0 0 24 24",
+                    },
+                    h("path", {
+                      "stroke-linecap": "round",
+                      "stroke-linejoin": "round",
+                      "stroke-width": "2",
+                      d: "M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6",
+                    })
+                  ),
+                  "Home"
+                )
+              ),
+              h(
+                "li",
+                null,
+                h(
+                  "a",
+                  { href: "#features", class: "flex items-center gap-2" },
+                  h(
+                    "svg",
+                    {
+                      class: "w-4 h-4",
+                      fill: "none",
+                      stroke: "currentColor",
+                      viewBox: "0 0 24 24",
+                    },
+                    h("path", {
+                      "stroke-linecap": "round",
+                      "stroke-linejoin": "round",
+                      "stroke-width": "2",
+                      d: "M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z",
+                    })
+                  ),
+                  "Features"
+                )
+              ),
+              h(
+                "li",
+                null,
+                h(
+                  "a",
+                  {
+                    href: "#getting-started",
+                    class: "flex items-center gap-2",
+                  },
+                  h(
+                    "svg",
+                    {
+                      class: "w-4 h-4",
+                      fill: "none",
+                      stroke: "currentColor",
+                      viewBox: "0 0 24 24",
+                    },
+                    h("path", {
+                      "stroke-linecap": "round",
+                      "stroke-linejoin": "round",
+                      "stroke-width": "2",
+                      d: "M13 10V3L4 14h7v7l9-11h-7z",
+                    })
+                  ),
+                  "Getting Started"
+                )
+              ),
+              h(
+                "li",
+                null,
+                h(
+                  "a",
+                  { href: "#extension", class: "flex items-center gap-2" },
+                  h(
+                    "svg",
+                    {
+                      class: "w-4 h-4",
+                      fill: "none",
+                      stroke: "currentColor",
+                      viewBox: "0 0 24 24",
+                    },
+                    h("path", {
+                      "stroke-linecap": "round",
+                      "stroke-linejoin": "round",
+                      "stroke-width": "2",
+                      d: "M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z",
+                    }),
+                    h("path", {
+                      "stroke-linecap": "round",
+                      "stroke-linejoin": "round",
+                      "stroke-width": "2",
+                      d: "M15 12a3 3 0 11-6 0 3 3 0 016 0z",
+                    })
+                  ),
+                  "Extension"
+                )
+              ),
+              h(
+                "li",
+                null,
+                h(
+                  "a",
+                  { href: "#support", class: "flex items-center gap-2" },
+                  h(
+                    "svg",
+                    {
+                      class: "w-4 h-4",
+                      fill: "none",
+                      stroke: "currentColor",
+                      viewBox: "0 0 24 24",
+                    },
+                    h("path", {
+                      "stroke-linecap": "round",
+                      "stroke-linejoin": "round",
+                      "stroke-width": "2",
+                      d: "M18.364 5.636l-3.536 3.536m0 5.656l3.536 3.536M9.172 9.172L5.636 5.636m3.536 9.192L5.636 18.364M12 2.25a9.75 9.75 0 100 19.5 9.75 9.75 0 000-19.5z",
+                    })
+                  ),
+                  "Support"
+                )
+              )
+            )
+          )
+        );
+      }
+
+      // Features Component
+      function Features() {
+        const features = [
+          {
+            title: "Application Management",
+            icon: "📊",
+            items: [
+              "One-Click Assessment: Get instant feedback on your applications",
+              "Gap Analysis: Identify missing skills and experience",
+              "ATS Check: Ensure your applications pass automated screening",
+              "Progress Tracking: Monitor your application success rates",
+            ],
+          },
+          {
+            title: "Browser Extension",
+            icon: "🔧",
+            items: [
+              "Universal Compatibility: Works on any job website",
+              "AI-Powered Extraction: Automatically extracts job information",
+              "Secure Authentication: Uses Personal Access Tokens",
+              "Duplicate Detection: Prevents duplicate submissions",
+            ],
+          },
+          {
+            title: "AI-Powered Insights",
+            icon: "🤖",
+            items: [
+              "Smart Recommendations: Get personalized job suggestions",
+              "Skill Matching: See how well you match job requirements",
+              "Interview Prep: Practice with AI-generated questions",
+              "Career Guidance: Get insights on career progression",
+            ],
+          },
+        ];
+
+        return h(
+          "section",
+          { id: "features", class: "py-20 bg-base-200" },
+          h(
+            "div",
+            { class: "container mx-auto px-4" },
+            h(
+              "h2",
+              { class: "text-4xl font-bold text-center mb-12" },
+              "Key Features"
+            ),
+            h(
+              "div",
+              { class: "grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8" },
+              ...features.map((feature) =>
+                h(
+                  "div",
+                  { class: "card bg-base-100 shadow-xl" },
+                  h(
+                    "div",
+                    { class: "card-body text-center" },
+                    h("div", { class: "text-6xl mb-4" }, feature.icon),
+                    h(
+                      "h3",
+                      { class: "card-title justify-center mb-4" },
+                      feature.title
+                    ),
+                    h(
+                      "ul",
+                      { class: "text-left space-y-2" },
+                      ...feature.items.map((item) =>
+                        h(
+                          "li",
+                          { class: "flex items-start" },
+                          h("span", { class: "text-primary mr-2" }, "•"),
+                          h("span", null, item)
+                        )
+                      )
+                    )
+                  )
+                )
+              )
+            )
+          )
+        );
+      }
+
+      // Getting Started Component
+      function GettingStarted() {
+        const steps = [
+          {
+            title: "Web App Setup",
+            description: "Create your account and set up your profile",
+            icon: "🌐",
+            status: "available",
+          },
+          {
+            title: "Install Extension",
+            description: "Add the CVForge extension to your browser",
+            icon: "🔧",
+            status: "available",
+          },
+          {
+            title: "Configure PAT",
+            description:
+              "Set up your Personal Access Token for secure authentication",
+            icon: "🔐",
+            status: "available",
+          },
+          {
+            title: "Start Applying",
+            description: "Begin tracking applications and getting AI insights",
+            icon: "🚀",
+            status: "available",
+          },
+        ];
+
+        return h(
+          "section",
+          { id: "getting-started", class: "py-20" },
+          h(
+            "div",
+            { class: "container mx-auto px-4" },
+            h(
+              "h2",
+              { class: "text-4xl font-bold text-center mb-12" },
+              "Getting Started"
+            ),
+            h(
+              "div",
+              { class: "grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8" },
+              ...steps.map((step, index) =>
+                h(
+                  "div",
+                  { class: "card bg-base-100 shadow-xl" },
+                  h(
+                    "div",
+                    { class: "card-body text-center" },
+                    h(
+                      "div",
+                      { class: "badge badge-primary badge-lg mb-4" },
+                      `Step ${index + 1}`
+                    ),
+                    h("div", { class: "text-4xl mb-4" }, step.icon),
+                    h(
+                      "h3",
+                      { class: "card-title justify-center mb-2" },
+                      step.title
+                    ),
+                    h("p", { class: "text-base-content/70" }, step.description),
+                    h(
+                      "div",
+                      { class: "card-actions justify-center mt-4" },
+                      h(
+                        "button",
+                        {
+                          class: `btn btn-primary ${
+                            step.status === "coming-soon" ? "btn-disabled" : ""
+                          }`,
+                          disabled: step.status === "coming-soon",
+                        },
+                        step.status === "coming-soon"
+                          ? "Coming Soon"
+                          : "Get Started"
+                      )
+                    )
+                  )
+                )
+              )
+            )
+          )
+        );
+      }
+
+      // Extension Component
+      function Extension() {
+        return h(
+          "section",
+          { id: "extension", class: "py-20 bg-base-200" },
+          h(
+            "div",
+            { class: "container mx-auto px-4" },
+            h(
+              "div",
+              { class: "hero-content text-center" },
+              h(
+                "div",
+                { class: "max-w-4xl" },
+                h(
+                  "h2",
+                  { class: "text-4xl font-bold mb-6" },
+                  "Browser Extension"
+                ),
+                h(
+                  "p",
+                  { class: "text-xl mb-8" },
+                  "Capture job descriptions from any website with our powerful browser extension"
+                ),
+                h(
+                  "div",
+                  { class: "grid grid-cols-1 md:grid-cols-2 gap-8" },
+                  h(
+                    "div",
+                    { class: "card bg-base-100 shadow-xl" },
+                    h(
+                      "div",
+                      { class: "card-body" },
+                      h("h3", { class: "card-title" }, "Installation Guide"),
+                      h(
+                        "p",
+                        { class: "mb-4" },
+                        "Step-by-step instructions to install the CVForge extension"
+                      ),
+                      h(
+                        "div",
+                        { class: "card-actions" },
+                        h(
+                          "a",
+                          { href: "extension/", class: "btn btn-primary" },
+                          "View Guide"
+                        )
+                      )
+                    )
+                  ),
+                  h(
+                    "div",
+                    { class: "card bg-base-100 shadow-xl" },
+                    h(
+                      "div",
+                      { class: "card-body" },
+                      h("h3", { class: "card-title" }, "Troubleshooting"),
+                      h(
+                        "p",
+                        { class: "mb-4" },
+                        "Common issues and solutions for the browser extension"
+                      ),
+                      h(
+                        "div",
+                        { class: "card-actions" },
+                        h(
+                          "a",
+                          {
+                            href: "extension/troubleshooting.html",
+                            class: "btn btn-secondary",
+                          },
+                          "View FAQ"
+                        )
+                      )
+                    )
+                  )
+                )
+              )
+            )
+          )
+        );
+      }
+
+      // Support Component
+      function Support() {
+        return h(
+          "section",
+          { id: "support", class: "py-20" },
+          h(
+            "div",
+            { class: "container mx-auto px-4" },
+            h(
+              "h2",
+              { class: "text-4xl font-bold text-center mb-12" },
+              "Support"
+            ),
+            h(
+              "div",
+              { class: "grid grid-cols-1 md:grid-cols-3 gap-8" },
+              h(
+                "div",
+                { class: "card bg-base-100 shadow-xl" },
+                h(
+                  "div",
+                  { class: "card-body text-center" },
+                  h("div", { class: "text-4xl mb-4" }, "📧"),
+                  h(
+                    "h3",
+                    { class: "card-title justify-center" },
+                    "Email Support"
+                  ),
+                  h(
+                    "p",
+                    { class: "mb-4" },
+                    "Get help directly from our support team"
+                  ),
+                  h(
+                    "div",
+                    { class: "card-actions justify-center" },
+                    h(
+                      "a",
+                      {
+                        href: "mailto:support@cvforge.com",
+                        class: "btn btn-primary",
+                      },
+                      "Contact Us"
+                    )
+                  )
+                )
+              ),
+              h(
+                "div",
+                { class: "card bg-base-100 shadow-xl" },
+                h(
+                  "div",
+                  { class: "card-body text-center" },
+                  h("div", { class: "text-4xl mb-4" }, "🐛"),
+                  h(
+                    "h3",
+                    { class: "card-title justify-center" },
+                    "Report Issues"
+                  ),
+                  h(
+                    "p",
+                    { class: "mb-4" },
+                    "Found a bug? Let us know on GitHub"
+                  ),
+                  h(
+                    "div",
+                    { class: "card-actions justify-center" },
+                    h(
+                      "a",
+                      {
+                        href: "https://github.com/yourusername/cvforge/issues",
+                        class: "btn btn-secondary",
+                      },
+                      "GitHub Issues"
+                    )
+                  )
+                )
+              ),
+              h(
+                "div",
+                { class: "card bg-base-100 shadow-xl" },
+                h(
+                  "div",
+                  { class: "card-body text-center" },
+                  h("div", { class: "text-4xl mb-4" }, "💬"),
+                  h("h3", { class: "card-title justify-center" }, "Community"),
+                  h(
+                    "p",
+                    { class: "mb-4" },
+                    "Join our Discord community for help and discussions"
+                  ),
+                  h(
+                    "div",
+                    { class: "card-actions justify-center" },
+                    h(
+                      "a",
+                      {
+                        href: "https://discord.gg/cvforge",
+                        class: "btn btn-accent",
+                      },
+                      "Join Discord"
+                    )
+                  )
+                )
+              )
+            )
+          )
+        );
+      }
+
+      // Footer Component
+      function Footer() {
+        return h(
+          "footer",
+          { class: "footer footer-center p-10 bg-base-200 text-base-content" },
+          h(
+            "div",
+            null,
+            h("h3", { class: "footer-title" }, "CVForge Documentation"),
+            h(
+              "p",
+              { class: "text-base-content/70" },
+              "Complete guide to using CVForge web app and browser extension tools"
+            ),
+            h(
+              "div",
+              { class: "grid grid-flow-col gap-4 mt-4" },
+              h(
+                "a",
+                {
+                  href: "mailto:support@cvforge.com",
+                  class: "link link-hover",
+                },
+                "Email Support"
+              ),
+              h(
+                "a",
+                {
+                  href: "https://github.com/yourusername/cvforge/issues",
+                  class: "link link-hover",
+                },
+                "GitHub Issues"
+              ),
+              h(
+                "a",
+                {
+                  href: "https://discord.gg/cvforge",
+                  class: "link link-hover",
+                },
+                "Discord Server"
+              )
+            )
+          ),
+          h(
+            "div",
+            null,
+            h(
+              "p",
+              { class: "text-base-content/50" },
+              "Last updated: October 2025"
+            )
+          )
+        );
+      }
+
+      // Main App Component
+      function App() {
+        const [currentSection, setCurrentSection] = useState("home");
+
+        useEffect(() => {
+          const handleScroll = () => {
+            const sections = [
+              "home",
+              "features",
+              "getting-started",
+              "extension",
+              "support",
+            ];
+            const scrollPosition = window.scrollY + 100;
+
+            for (const section of sections) {
+              const element = document.getElementById(section);
+              if (element) {
+                const { offsetTop, offsetHeight } = element;
+                if (
+                  scrollPosition >= offsetTop &&
+                  scrollPosition < offsetTop + offsetHeight
+                ) {
+                  setCurrentSection(section);
+                  break;
+                }
+              }
+            }
+          };
+
+          window.addEventListener("scroll", handleScroll);
+          return () => window.removeEventListener("scroll", handleScroll);
+        }, []);
+
+        return h(
+          "div",
+          { class: "min-h-screen bg-base-100" },
+          h(Navigation),
+          h(
+            "main",
+            null,
+            h("section", { id: "home" }, h(Hero)),
+            h(Features),
+            h(GettingStarted),
+            h(Extension),
+            h(Support)
+          ),
+          h(Footer)
+        );
+      }
+
+      // Render the app
+      render(h(App), document.getElementById("app"));
+    </script>
   </head>
-  <body data-theme="light">
-    <div class="container">
-      <!-- Hero Section -->
-      <div class="hero">
-        <div class="hero-content">
-          <h1>CVForge Documentation</h1>
-          <p class="text-xl">Complete guide to using CVForge web app and browser extension tools</p>
-          <div class="mt-4">
-            <a href="extension/" class="btn btn-primary">Get Started</a>
-            <a href="#features" class="btn btn-secondary">Learn More</a>
-          </div>
-        </div>
-      </div>
-
-      <!-- Navigation -->
-      <div class="navbar bg-base-100 shadow-lg mb-4">
-        <div class="navbar-start">
-          <a href="#" class="btn btn-ghost text-xl">CVForge Docs</a>
-        </div>
-        <div class="navbar-center">
-          <ul class="menu menu-horizontal px-1">
-            <li><a href="#home">Home</a></li>
-            <li><a href="extension/">Extension Docs</a></li>
-            <li><a href="#help">Help</a></li>
-          </ul>
-        </div>
-      </div>
-
-      <main>
-        <section id="home">
-          <h2>Welcome to CVForge Documentation</h2>
-          <p>
-            Complete guide to using CVForge web app and browser extension tools.
-          </p>
-
-          <h3>What is CVForge?</h3>
-          <p>
-            CVForge is a comprehensive job application management platform that
-            helps you:
-          </p>
-          <ul>
-            <li>
-              <strong>Track Applications</strong>: Manage all your job
-              applications in one place
-            </li>
-            <li>
-              <strong>AI-Powered Assessments</strong>: Get instant feedback on
-              your applications
-            </li>
-            <li>
-              <strong>Gap Analysis</strong>: Identify skills gaps and
-              improvement areas
-            </li>
-            <li>
-              <strong>ATS Optimization</strong>: Ensure your applications pass
-              ATS screening
-            </li>
-            <li>
-              <strong>Browser Extension</strong>: Capture job descriptions from
-              any website
-            </li>
-          </ul>
-
-          <h3>Quick Start</h3>
-          <div class="grid">
-            <div class="card">
-              <div class="card-body">
-                <h4 class="card-title">Web App</h4>
-                <ul>
-                  <li>Getting started with the web app (coming soon)</li>
-                  <li>Account setup and onboarding (coming soon)</li>
-                  <li>Managing applications and assessments (coming soon)</li>
-                </ul>
-              </div>
-            </div>
-            <div class="card">
-              <div class="card-body">
-                <h4 class="card-title">Browser Extension</h4>
-                <p>
-                  <a href="extension/" class="link link-primary">Extension Documentation</a> - Complete
-                  guide to installation, PATs, usage, FAQ, and troubleshooting
-                </p>
-              </div>
-            </div>
-          </div>
-
-          <h3 id="features">Key Features</h3>
-          <div class="features">
-            <div class="feature">
-              <h4>Application Management</h4>
-              <ul>
-                <li>
-                  <strong>One-Click Assessment</strong>: Get instant feedback on
-                  your applications
-                </li>
-                <li>
-                  <strong>Gap Analysis</strong>: Identify missing skills and
-                  experience
-                </li>
-                <li>
-                  <strong>ATS Check</strong>: Ensure your applications pass
-                  automated screening
-                </li>
-                <li>
-                  <strong>Progress Tracking</strong>: Monitor your application
-                  success rates
-                </li>
-              </ul>
-            </div>
-            <div class="feature">
-              <h4>Browser Extension</h4>
-              <ul>
-                <li>
-                  <strong>Universal Compatibility</strong>: Works on any job
-                  website
-                </li>
-                <li>
-                  <strong>AI-Powered Extraction</strong>: Automatically extracts
-                  job information
-                </li>
-                <li>
-                  <strong>Secure Authentication</strong>: Uses Personal Access
-                  Tokens
-                </li>
-                <li>
-                  <strong>Duplicate Detection</strong>: Prevents duplicate
-                  submissions
-                </li>
-              </ul>
-            </div>
-          </div>
-        </section>
-      </main>
-
-      <footer class="footer footer-center p-10 bg-base-200 text-base-content rounded">
-        <div>
-          <h3 class="footer-title">Support</h3>
-          <div class="grid grid-flow-col gap-4">
-            <a class="link link-hover" href="mailto:support@cvforge.com">
-              <strong>Email Support</strong>
-            </a>
-            <a class="link link-hover" href="https://github.com/yourusername/cvforge/issues">
-              <strong>GitHub Issues</strong>
-            </a>
-            <a class="link link-hover" href="https://discord.gg/cvforge">
-              <strong>Discord Server</strong>
-            </a>
-          </div>
-        </div>
-        <div>
-          <p><em>Last updated: October 2025</em></p>
-        </div>
-      </footer>
-    </div>
+  <body>
+    <div id="app"></div>
   </body>
 </html>
